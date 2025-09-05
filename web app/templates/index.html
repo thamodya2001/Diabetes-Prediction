@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Care Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">🩺 SugerShield</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Check Your Diabetes Risk Instantly</h1>
+        <p>Early detection and awareness can save lives. Enter your details and find out your diabetes risk.</p>
+        <a href="#predict-form" class="btn">Start Screening</a>
+    </section>
+
+    <!-- Awareness Section -->
+    <section class="awareness">
+        <h2>Why Diabetes Awareness Matters?</h2>
+        <p>
+            Diabetes is one of the most common health conditions worldwide.
+            Understanding your risk factors helps you take preventive steps early.
+            This tool gives you quick insights into your possible diabetes risk.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>⚠️ Risks</h3>
+                <p>Uncontrolled diabetes can lead to heart disease, kidney problems, and nerve damage.</p>
+            </div>
+            <div class="card">
+                <h3>🍎 Healthy Habits</h3>
+                <p>Eating a balanced diet and maintaining a healthy weight can reduce your risk.</p>
+            </div>
+            <div class="card">
+                <h3>🏃 Prevention</h3>
+                <p>Regular exercise and monitoring your blood sugar are key preventive measures.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prediction Form -->
+    <section class="form-section" id="predict-form"
+        background="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210203170945/HTML-Tutorials.png" style="background-repeat: no-repeat;
+             background-attachment: fixed; 
+             background-size: 100% 100%;">
+        <h2>Diabetes Risk Prediction</h2>
+        <form class="predict-form" action="/predict" method="POST">
+
+            <!-- Gender -->
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" required>
+                <option value="">Select</option>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+
+            <!-- Age -->
+            <label for="age">Age (years)</label>
+            <input type="number" id="age" name="age" required min="0">
+
+            <!-- Hypertension -->
+            <label for="hypertension">Do you have hypertension?</label>
+            <select name="hypertension" id="hypertension" required>
+                <option value="">Select</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <!-- Heart Disease -->
+            <label for="heart_diseases">Do you have a heart disease history?</label>
+            <select name="heart_diseases" id="heart_diseases" required>
+                <option value="">Select</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <!-- Smoking -->
+            <label for="smoking_history">Smoking History</label>
+            <select name="smoking_history" id="smoking_history" required>
+                <option value="">Select</option>
+                <option value="0">Never</option>
+                <option value="1">Former</option>
+                <option value="2">Current</option>
+            </select>
+
+            <!-- Height -->
+            <label for="height_cm">Height (cm)</label>
+            <input type="number" id="height_cm" name="height_cm" step="0.1" required>
+
+            <!-- Weight -->
+            <label for="weight_kg">Weight (kg)</label>
+            <input type="number" id="weight_kg" name="weight_kg" step="0.1" required>
+
+            <!-- HbA1c -->
+            <label for="HbA1c_level">HbA1c Level (%)</label>
+            <input type="number" id="HbA1c_level" name="HbA1c_level" step="0.1" required>
+
+            <!-- Blood Glucose -->
+            <label for="blood_glucose_level">Blood Glucose (mg/dL)</label>
+            <input type="number" id="blood_glucose_level" name="blood_glucose_level" step="0.1" required>
+
+            <!-- Submit -->
+            <button type="submit" class="btn">Predict</button>
+        </form>
+        {% if result != '' %}
+        <div class="result-box" id="result">
+            <h3>Prediction Result:</h3>
+            <p>{{ result }}</p>
+            <script>
+                // Scroll to the result after page reload
+                document.getElementById("result").scrollIntoView({ behavior: "smooth" });
+            </script>
+        </div>
+
+        {% endif %}
+    </section>
+
+
+
+
+    {% if result !='' %} {% if "High Risk" in result %} <!-- Show Recommendations only if high risk -->
+    <div class="d-flex justify-content-center mt-4" style="border-left: 5px solid #d32f2f; background-color: #ffebee;">
+        <div class="card-body">
+            <h4 class="card-title text-danger">⚠️ Important Recommendation</h4>
+            <p class="card-text">
+                Based on your result, you may be at higher risk of developing diabetes.
+                Would you like to see prevention tips and personalized recommendations?
+            </p>
+
+
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+
+        <a href="{{ url_for('contact') }}" class="btn btn-outline-danger">Meet Your Doctor</a>
+    </div>
+    {% else %}
+    <!-- Show Good Health message -->
+    <div class="d-flex justify-content-center mt-4" style="border-left: 5px solid #2e7d32; background-color: #e8f5e9;">
+        <div class="card-body">
+            <h4 class="card-title text-success">🌿 Good News</h4>
+            <p class="card-text">
+                Your result indicates you are currently in good health. Keep maintaining a balanced diet,
+                regular exercise, and healthy lifestyle habits.
+            </p>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Diabetes Care Predictor</p>
+    </footer>
+
+</body>
+
+</html>

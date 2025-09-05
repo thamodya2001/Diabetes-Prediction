@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Column: Contact Us Form -->
+        <div class="col-md-6 mb-4">
+            <div class="p-4 shadow-sm rounded bg-light">
+                <h2 class="mb-3 text-primary">📩 Contact Us</h2>
+                <p>If you have questions or feedback, feel free to reach out.</p>
+
+                {% if success %}
+                <div class="alert alert-success">{{ success }}</div>
+                {% endif %}
+
+                <form method="POST" action="/send_message">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" name="message" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Send</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Column: Meet Your Doctor -->
+        <div class="col-md-6 mb-4">
+            <div class="p-4 shadow-sm rounded bg-white border-start border-3 border-primary">
+                <h2 class="mb-3 text-primary">👨‍⚕️ Meet Your Doctor</h2>
+                <p>
+                    Our medical team is here to guide you through prevention and treatment steps.
+                    If you’re at high risk of diabetes, we strongly recommend booking an appointment
+                    for a professional consultation.
+                </p>
+
+                <ul class="list-unstyled mb-4">
+                    <li><strong>📍 Location:</strong> Healthy Life Clinic, Colombo</li>
+                    <li><strong>📞 Phone:</strong> +94 77 123 4567</li>
+                    <li><strong>📧 Email:</strong> doctor@healthylife.com</li>
+                </ul>
+
+                <a href="appointment.html" class="btn btn-outline-primary w-100">Book an Appointment</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
