@@ -1,0 +1,198 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    background: #07293464;
+    color: rgb(32, 8, 99);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: rgb(60, 58, 169);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #90e0ef;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(to right, #0077b6, #0096c7);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    background: #90e0ef;
+    color: #000;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.hero .btn:hover {
+    background: #caf0f8;
+}
+
+/* Awareness Section */
+.awareness {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.awareness h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #0077b6;
+}
+
+.awareness p {
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #0096c7;
+}
+
+/* Form Section */
+
+.form-section {
+    background-image: url('health.jpg');
+    background: #d1ccec;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.form-section h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+    color: #0077b6;
+}
+
+.predict-form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.predict-form label {
+    text-align: left;
+    font-weight: 600;
+}
+
+.predict-form input,
+.predict-form select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.predict-form .btn {
+    background: #0077b6;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.predict-form .btn:hover {
+    background: #0096c7;
+}
+
+/* Result Box */
+.result-box {
+    margin-top: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.result-box h3 {
+    margin-bottom: 10px;
+    color: #0077b6;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background: #0077b6;
+    color: white;
+    padding: 15px;
+    margin-top: 40px;
+}
